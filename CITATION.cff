@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this code or these derived tables, please cite the archived release below."
+title: "Subtype selectivity of analgesic targets in human dorsal root ganglia"
+abstract: "Code and derived data for a genome-wide benchmark of analgesic targets across four human DRG cohorts, one mouse cohort, six FinnGen endpoints and one public proteome. Places ADORA1, CNR1, OPRK1, TRPV1, P2RX3 and Nav1.7/1.8/1.9 on a common ΔAUC yardstick."
+type: software
+version: 1.0.0
+date-released: 2026-11-09
+license: MIT
+repository-code: "https://github.com/<your-account>/drg-target-selectivity"
+url: "https://doi.org/10.5281/zenodo.XXXXXXX"
+doi: "10.5281/zenodo.XXXXXXX"
+keywords:
+  - dorsal root ganglion
+  - single-cell RNA sequencing
+  - acupuncture analgesia
+  - adenosine A1 receptor
+  - subtype selectivity
+  - reproducibility
+authors:
+  - family-names: Lu
+    given-names: Yi
+    affiliation: "Department of Anesthesiology, Tianhe Campus"
+    orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"
+  # Add co-authors here in the same block structure before release.
+preferred-citation:
+  type: article
+  title: "The adenosine A1 receptor lacks reproducible subtype selectivity in human dorsal root ganglia: a genome-wide benchmark across four cohorts"
+  authors:
+    - family-names: Lu
+      given-names: Yi
+  year: 2026
+  journal: "Manuscript in preparation"

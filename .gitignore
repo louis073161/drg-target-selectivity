@@ -1,0 +1,17 @@
+# 运行产物：由 data/ 铺平而来，不入版本库
+sc_demo/*.csv
+sc_demo/*.tsv
+sc_demo/*.png
+sc_demo/*.h5ad
+sc_demo/*.pkl
+
+# Zenodo 归档解压位置
+archive/
+
+# 通用
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+~$*

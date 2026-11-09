@@ -1,0 +1,16 @@
+﻿cluster,cell_type,evidence,note,n_cells
+4,hA-fiber.NEFL+,"NEFL, SPP1, RTN4",有髓A类,151
+12,hNP,"SCN11A, MRGPRX1, OSMR",非肽能伤害感受器,120
+2,hPropr,"PVALB, REEP5, WLS",本体感觉,119
+9,未定-2,"PCDH7, QRFPR, NTRK2, CBLN2",标记不足,112
+3,hPEP.NMB+,"NMB, SERTM1, FABP3, CALCA",肽能亚型,105
+10,hPEP.CHRNA7,"CHRNA7, CD9, HBA2",肽能亚型,99
+0,hPEP.TAC1+,"TAC1, SCG2, CALCA",肽能伤害感受器,81
+8,未定-1,"KCNQ5, SCGN, PTGIR",标记不足,78
+6,hAδ.LTMR,"NTRK3, TPD52L1",Aδ低阈值机械,70
+11,未定-3,"PLA2R1, MEG3, GRK3",标记不足,55
+5,非神经元·巨噬细胞,"CD74, C1QC, C3, APOE",免疫细胞,55
+13,hSST,"SST, GFRA3, HTR3A, IL31RA",SST+ 亚型,41
+7,hATF3,"ATF3, UCN, GADD45A",损伤/应激神经元,26
+14,未定-4,"CASQ2, POU4F2",仅9个细胞,9
+1,hTRPM8,"TRPM8, STUM, ENTPD3",冷感受,8

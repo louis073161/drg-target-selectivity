@@ -1,0 +1,13 @@
+gene,n_donor_detected,n_donor_total,CV_pct,log2_abundance,abundance_pctile
+TRPM8,0,8,—,—,—
+SCN11A,8,8,4.5,12.49,15.3
+SST,0,8,—,—,—
+TRPV1,8,8,3.7,13.77,41.8
+CALCA,0,8,—,—,—
+P2RX3,7,8,2.2,13.12,27.6
+SCN10A,8,8,2.6,13.01,25.1
+OPRM1,0,8,—,—,—
+OPRD1,0,8,—,—,—
+CNR1,0,8,—,—,—
+ADORA1,0,8,—,—,—
+OPRK1,0,8,—,—,—

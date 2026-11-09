@@ -1,0 +1,16 @@
+﻿cluster,n_cells,assign,z_best,z_second,second,confidence
+4,151,hAβ.LTMR,1.35,1.2,hAδ.LTMR,低
+12,120,hNP1,1.95,1.53,hNP2,中
+2,119,hPropr,3.0,1.48,hAβ.LTMR,高
+9,112,hC.LTMR,0.68,0.56,hAδ.LTMR,低
+3,105,hPEP.PIEZO(hi),1.23,0.83,hPEP.TRPV1/A1.1,低
+10,99,hPEP.CHRNA7,2.74,1.57,hPEP.TRPV1/A1.2,高
+0,81,hPEP.KIT,2.86,2.53,hPEP.PIEZO(hi),低
+8,78,hNP2,1.17,1.15,hPEP.KIT,低
+6,70,hAδ.LTMR,2.13,1.63,hAβ.LTMR,中
+11,55,hNP1,1.84,1.37,hNP2,中
+5,55,hAβ.LTMR,0.77,0.55,hAδ.LTMR,低
+13,41,hSST,3.63,1.63,hC.LTMR,高
+7,26,hATF3,3.48,0.64,hAβ.LTMR,高
+14,9,hC.LTMR,1.75,0.79,hNP1,高
+1,8,hTRPM8,3.71,1.15,hC.LTMR,高
