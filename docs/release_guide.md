@@ -91,14 +91,28 @@ GitHub 网页：右侧 **Releases → Create a new release**
 
 GitHub 放不下，但 Zenodo 单条记录上限 **50 GB**，正好。做法：
 
-1. 把 `原始数据/` 压成一个 zip（排除 `11_未复制_大体积原始件` 里 282 GB 的 `timsTOF.zip`，
-   它本来就只有登记没有实体）：
+1. 在 `原始数据/` 的**上一级**目录（即工作区根）跑下面这段，把 3.1 GB 归档打成 zip。
+   本机没有装 `zip`/`7z`，用 Python 自带的 zipfile 最稳（自动启用 ZIP64，支持 >4 GB）：
+
    ```bash
-   cd 原始数据
-   zip -r ../drg-archive-2026-11-09.zip . -x "11_*/*" -x "*.h5ad"
+   python - <<'EOF'
+   import zipfile
+   from pathlib import Path
+   src, out = Path("原始数据"), Path("drg-archive-2026-11-09.zip")
+   with zipfile.ZipFile(out, "w", allowZip64=True) as z:
+       for p in src.rglob("*"):
+           if not p.is_file() or p.parts[1].startswith("11_"):   # 11_ 只有登记，无实体
+               continue
+           comp = zipfile.ZIP_STORED if p.suffix in (".h5ad", ".gz", ".zip") \
+                  else zipfile.ZIP_DEFLATED
+           z.write(p, p.as_posix(), compress_type=comp)
+   print(out.stat().st_size / 2**30, "GB")
+   EOF
    ```
-   `.h5ad` 是否排除取决于你：含进去约 2.2 GB，能让 `power_sim.py` 等脚本完全复跑，
-   **建议含进去**（审稿人最想跑的就是 3.12 节）。
+
+   `.h5ad` **建议含进去**（约 2.2 GB），这样 `power_sim.py` 等 15 个脚本可以完全复跑 ——
+   审稿人最想亲手跑的就是 3.12 节的注入模拟。`.h5ad` 已是压缩格式，所以用 ZIP_STORED
+   不再二次压缩，打包只需几分钟。
 2. Zenodo → **New upload** → 拖入 zip → 填元数据：
    - Upload type: `Dataset`
    - Title: `Archive of intermediates for the human DRG target selectivity benchmark`
