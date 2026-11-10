@@ -23,7 +23,7 @@
 - 71 个派生数据文件（`data/01…12/`，14 MB），每张表每张图都能回溯到一个 CSV
 - 7 张成品图（`figures/`）
 - `README.md`、`LICENSE`（MIT）、`CITATION.cff`、`requirements.txt`、`.gitignore`
-- `tools/quick_check.py`：审稿人一条命令即可复核表 10、3.13、3.11、图 2，逐字节比对 MD5
+- `tools/quick_check.py`：审稿人一条命令即可复核表 10、3.13、3.11、图 2，比对 MD5
 - `.github/workflows/quick_check.yml`：push 后 GitHub 自动在干净容器里重算一遍，
   仓库首页的绿点徽章就是"第三方可复现"的公开证据（该路径需令牌具备 Workflows 写权限）
 
@@ -135,7 +135,7 @@ version DOI，Concept DOI 不变。稿件已发表就引 v1.0.0 的 DOI，不必
 > 全部分析脚本、派生数据表与图件见 https://github.com/louis073161/drg-target-selectivity
 > （MIT 许可），并永久归档于 Zenodo（DOI: 10.5281/zenodo.XXXXXXX）；中间结果与 `.h5ad`
 > 对象归档于 Zenodo（DOI: 10.5281/zenodo.YYYYYYY）。仓库内 `tools/quick_check.py`
-> 可一键复核表 10、3.11、3.13 与图 2，输出与本稿逐字节一致；GitHub Actions 亦在
+> 可一键复核表 10、3.11、3.13 与图 2，输出与本稿一致（CSV 校验前归一换行符）；GitHub Actions 亦在
 > 干净容器中每次提交自动复算。原始测序数据来自 GSE249746、GSE59739、GSE310000、
 > GSE201586，遗传学数据来自 FinnGen R12，蛋白组数据来自 PRIDE PXD061129，
 > 均按各自许可公开。
@@ -146,7 +146,7 @@ version DOI，Concept DOI 不变。稿件已发表就引 v1.0.0 的 DOI，不必
 > https://github.com/louis073161/drg-target-selectivity (MIT) and are permanently archived
 > at Zenodo (DOI: 10.5281/zenodo.XXXXXXX); intermediates and `.h5ad` objects are archived
 > separately (DOI: 10.5281/zenodo.YYYYYYY). `tools/quick_check.py` reproduces Table 10,
-> sections 3.11 and 3.13, and Figure 2 byte-for-byte, and the same check runs automatically
+> sections 3.11 and 3.13, and Figure 2 (line endings normalised before hashing), and the same check runs automatically
 > in GitHub Actions on every commit. Raw sequencing data were obtained from GSE249746,
 > GSE59739, GSE310000 and GSE201586, genetic associations from FinnGen release 12, and
 > proteomic data from PRIDE PXD061129, each under its own terms.

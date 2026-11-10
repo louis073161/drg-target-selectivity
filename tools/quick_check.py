@@ -16,11 +16,11 @@ import sys
 ROOT = Path(__file__).resolve().parent.parent
 WORK = ROOT / "sc_demo"
 
-# 与稿件 2026-11-09 稿所用输出逐字节一致的校验和
+# 与稿件 2026-11-09 稿所用输出一致的校验和（换行符已归一为 LF）
 EXPECT = {
-    "table10_proteome.csv":          "1639e0f770b63a6a3c55cd757b68f267",
-    "adora1_by_class.csv":           "99173d5f4d50ce20031879701a227c77",
-    "matched_null.csv":              "e8b523c10000a4699100faf0503eefb5",
+    "table10_proteome.csv":          "7b4dacb392d7549ea8d7925b169d4e96",
+    "adora1_by_class.csv":           "7993deec62c1184ca9335de8ef47cf7a",
+    "matched_null.csv":              "b5223738ec10524f429708cb7849f75b",
     "fig2_genomewide_benchmark.png": "9c22a0d811b21841b60915a16f6daaae",
 }
 STEPS = [
@@ -31,11 +31,31 @@ STEPS = [
 
 
 def md5(p: Path) -> str:
-    h = hashlib.md5()
-    with open(p, "rb") as f:
-        for blk in iter(lambda: f.read(1 << 20), b""):
-            h.update(blk)
-    return h.hexdigest()
+    """按内容校验。CSV 先把 CRLF 归一成 LF，二进制文件按原样。
+
+    同一份表格在 Windows 上由 pandas 写出为 \\r\\n、Linux 上为 \\n，字节不同但内容
+    完全一致。归一化后校验和跨平台可比，CI 才有意义。PNG 不能这么处理——它的
+    二进制里本来就可能含 \\r\\n，改写会破坏文件。
+    """
+    data = p.read_bytes()
+    if p.suffix.lower() in (".csv", ".tsv", ".txt"):
+        data = data.replace(b"\r\n", b"\n")
+    return hashlib.md5(data).hexdigest()
+
+
+def first_diff(a: Path, b: Path, n: int = 3) -> list[str]:
+    """出错时给出前几行差异，省得下次还要翻日志猜。"""
+    la = a.read_text(encoding="utf-8-sig", errors="replace").replace("\r\n", "\n").splitlines()
+    lb = b.read_text(encoding="utf-8-sig", errors="replace").replace("\r\n", "\n").splitlines()
+    out = []
+    for i, (x, y) in enumerate(zip(la, lb), 1):
+        if x != y:
+            out.append(f"    第 {i} 行\n      期望 {y[:90]}\n      实得 {x[:90]}")
+            if len(out) >= n:
+                break
+    if not out and len(la) != len(lb):
+        out.append(f"    行数不同：{len(la)} vs {len(lb)}")
+    return out
 
 
 def main() -> int:
@@ -60,6 +80,11 @@ def main() -> int:
             got = md5(p)
             ok = got == EXPECT[o]
             print(f"    {'一致' if ok else '不一致'}  {o}  {got[:8]}")
+            if not ok:
+                ref = next((q for q in (ROOT / "data").rglob(o)), None)
+                if ref:
+                    for line in first_diff(p, ref):
+                        print(line)
             bad += 0 if ok else 1
 
     print("\n" + ("全部一致，稿件数字可复现。" if bad == 0 else f"{bad} 项异常。"))

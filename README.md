@@ -116,7 +116,7 @@ python tools/quick_check.py
 ```
 
 `quick_check.py` 会把表 10、3.13 节、3.11 节匹配零分布与图 2 重算一遍，并与稿件所用
-版本逐字节比对 MD5，全部一致才算复现成功。需要 `.h5ad` 中间件的脚本（含 3.12 节注入模拟）
+版本比对 MD5（CSV 先归一换行符，跨平台可比），全部一致才算复现成功。需要 `.h5ad` 中间件的脚本（含 3.12 节注入模拟）
 要先解压 Zenodo 归档，见 `docs/run_order.md`。
 
 发布步骤（GitHub 建库 → 打 tag → Zenodo 领 DOI → 回填）见 `docs/release_guide.md`。
