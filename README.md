@@ -1,5 +1,8 @@
 # Subtype selectivity of analgesic targets in human dorsal root ganglia
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Code, derived data and figure source files for the manuscript:
 
 > **The adenosine A1 receptor lacks reproducible subtype selectivity in human dorsal root ganglia:
@@ -40,6 +43,8 @@ The 3.1 GB archive of intermediates, including the `.h5ad` objects, is deposited
 ## Quick start
 
 ```bash
+git clone https://github.com/louis073161/drg-target-selectivity.git
+cd drg-target-selectivity
 python -m pip install -r requirements.txt      # Python 3.13
 python tools/prepare_workdir.py                # flatten data/**/*.csv into sc_demo/
 python tools/quick_check.py                    # reproduce Table 10, 3.13, 3.11, Figure 2
@@ -48,6 +53,13 @@ python tools/quick_check.py                    # reproduce Table 10, 3.13, 3.11,
 `quick_check.py` re-runs `prot_check.py`, `matched_null.py` and `fig_benchmark.py` and compares
 MD5 checksums against the versions used in the manuscript. It should print
 `全部一致，稿件数字可复现。` — four outputs, byte-identical.
+
+The three table-producing checks can also run in GitHub Actions on Linux
+(`--csv-only`, since PNG bytes are not platform-invariant). The workflow definition is kept
+at `tools/github_actions_quick_check.yml`; copy it to `.github/workflows/` and push to
+enable it (that path requires the `workflows` scope on the pushing token). Once enabled, a
+green badge certifies that the published numbers are regenerable by a third party, not
+merely by the authors.
 
 Scripts that need the intermediate `.h5ad` objects (`atlas_s3_final.h5ad`, 216 MB;
 `GSE310000.h5ad`; the mouse objects) require the Zenodo archive; unzip it into `archive/`
@@ -80,6 +92,9 @@ Two of these medians happen to equal 0.066. That is a coincidence, not a shared 
 If you use this code or these tables, please cite the manuscript and the archived release
 (DOI to be inserted after the Zenodo deposit). `CITATION.cff` carries the metadata GitHub and
 Zenodo read automatically.
+
+**Author.** Yi Lu, MD, PhD — The Affiliated Traditional Chinese Medicine Hospital,
+Guangzhou Medical University. ORCID [0000-0002-0758-0648](https://orcid.org/0000-0002-0758-0648).
 
 ## License
 

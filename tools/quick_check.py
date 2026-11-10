@@ -39,11 +39,15 @@ def md5(p: Path) -> str:
 
 
 def main() -> int:
+    csv_only = "--csv-only" in sys.argv      # CI 用：PNG 字节不跨平台一致
     if not (WORK / "gene_selectivity_ranked.csv").exists():
         print("请先运行 python tools/prepare_workdir.py"); return 1
 
     bad = 0
     for script, outs in STEPS:
+        if csv_only and script == "fig_benchmark.py":
+            print("\n>>> fig_benchmark.py  跳过（--csv-only）")
+            continue
         print(f"\n>>> {script}")
         r = subprocess.run([sys.executable, script], cwd=WORK,
                            capture_output=True, text=True)

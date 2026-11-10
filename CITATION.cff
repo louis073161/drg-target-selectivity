@@ -4,9 +4,9 @@ title: "Subtype selectivity of analgesic targets in human dorsal root ganglia"
 abstract: "Code and derived data for a genome-wide benchmark of analgesic targets across four human DRG cohorts, one mouse cohort, six FinnGen endpoints and one public proteome. Places ADORA1, CNR1, OPRK1, TRPV1, P2RX3 and Nav1.7/1.8/1.9 on a common ΔAUC yardstick."
 type: software
 version: 1.0.0
-date-released: 2026-11-09
+date-released: 2026-11-10
 license: MIT
-repository-code: "https://github.com/<your-account>/drg-target-selectivity"
+repository-code: "https://github.com/louis073161/drg-target-selectivity"
 url: "https://doi.org/10.5281/zenodo.XXXXXXX"
 doi: "10.5281/zenodo.XXXXXXX"
 keywords:
@@ -19,8 +19,8 @@ keywords:
 authors:
   - family-names: Lu
     given-names: Yi
-    affiliation: "Department of Anesthesiology, Tianhe Campus"
-    orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"
+    affiliation: "The Affiliated Traditional Chinese Medicine Hospital, Guangzhou Medical University"
+    orcid: "https://orcid.org/0000-0002-0758-0648"
   # Add co-authors here in the same block structure before release.
 preferred-citation:
   type: article
@@ -28,5 +28,7 @@ preferred-citation:
   authors:
     - family-names: Lu
       given-names: Yi
+      affiliation: "The Affiliated Traditional Chinese Medicine Hospital, Guangzhou Medical University"
+      orcid: "https://orcid.org/0000-0002-0758-0648"
   year: 2026
   journal: "Manuscript in preparation"

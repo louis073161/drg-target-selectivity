@@ -20,45 +20,47 @@
 `drg-target-selectivity/` 这个目录就是完整的仓库，已包含：
 
 - 31 个分析脚本（`sc_demo/`，原样保留，未做任何"美化改写"）
-- 79 个派生数据文件（`data/01…12/`，17.5 MB），每张表每张图都能回溯到一个 CSV
+- 71 个派生数据文件（`data/01…12/`，14 MB），每张表每张图都能回溯到一个 CSV
 - 7 张成品图（`figures/`）
 - `README.md`、`LICENSE`（MIT）、`CITATION.cff`、`requirements.txt`、`.gitignore`
 - `tools/quick_check.py`：审稿人一条命令即可复核表 10、3.13、3.11、图 2，逐字节比对 MD5
+- `tools/github_actions_quick_check.yml`：CI 工作流模板。`.github/workflows/` 这个路径
+  需要令牌具备 Workflows 写权限才能推送，故暂存在 `tools/`；若要启用，复制回
+  `.github/workflows/` 并 push 即可，仓库首页会出现绿点徽章（"第三方可复现"的公开证据）
 
-合计约 28 MB。GitHub 单文件上限 100 MB、仓库建议 1 GB 以内，完全够。
+合计约 24 MB。GitHub 单文件上限 100 MB、仓库建议 1 GB 以内，完全够。
 
-**尚未完成的两处占位**，发布前必须改：
+**唯一剩下的占位是 DOI**：Zenodo 生成后，把 `10.5281/zenodo.XXXXXXX` 替换成真实值
+（`CITATION.cff` 两处、`README.md` 徽章与正文各一处）。仓库地址、ORCID、作者与单位
+已按 2026-11-10 提供的信息填好：
 
-1. `CITATION.cff` 里的 `repository-code`、`orcid`；
-2. Zenodo 生成 DOI 后，把 `10.5281/zenodo.XXXXXXX` 替换成真实 DOI（三处：`CITATION.cff` 两处、`README.md` 一处）。
+- GitHub：`louis073161`（本地已设好 `origin`，直接 push 即可）
+- ORCID：`0000-0002-0758-0648`
+- 作者与单位：Yi Lu，The Affiliated Traditional Chinese Medicine Hospital, Guangzhou Medical University
 
 ## 2. 上传到 GitHub
 
-### 方式 A：命令行（最快，本机已装 git 2.55）
+仓库已在本地初始化并提交完毕，只差建远端并推送：
 
 ```bash
 cd drg-target-selectivity
-git init -b main
-git add -A
-git commit -m "Code and derived data for DRG target selectivity benchmark (v1.0.0)"
-
-# 先在网页上建一个空仓库 drg-target-selectivity（不要勾选 README/.gitignore）
-git remote add origin https://github.com/<你的账号>/drg-target-selectivity.git
+# 先在网页建空仓库 louis073161/drg-target-selectivity（不要勾选 README/.gitignore/LICENSE）
 git push -u origin main
 ```
 
-首次 push 会弹出浏览器授权，登录即可。国内网络若超时，改用下面的方式 B。
+首次 push 会弹出浏览器授权，登录 `louis073161` 对应账号即可。国内网络若超时：改用
+GitHub Desktop（方式 B），或先 `git config --global http.proxy` 指向本地代理。
 
-### 方式 B：GitHub Desktop（图形界面，无需命令行）
+### 备选：GitHub Desktop（图形界面，无需命令行）
 
-1. 装 GitHub Desktop → File → Add local repository → 选 `drg-target-selectivity`；
-   提示 "not a git repository" 时点 **create a repository** → Publish repository；
-2. 勾掉 "Keep this code private"，点 Publish。
+1. 装 GitHub Desktop → File → Add local repository → 选 `drg-target-selectivity`
+   （已是 git 仓库，直接识别）→ 右上 **Publish repository**；
+2. 勾掉 "Keep this code private"，仓库名保持 `drg-target-selectivity`，点 Publish。
 
-### 方式 C：网页拖拽（零安装，但不推荐）
+### 备选：网页拖拽（零安装，但不推荐）
 
-新建仓库 → Add file → Upload files → 把文件夹拖进去。缺点：文件夹结构要手动保持，
-`.gitignore` 不生效，后续改版麻烦。
+新建仓库 → Add file → Upload files → 把文件夹拖进去。缺点：`.gitignore` 不生效、
+空文件夹丢失、后续改版要重传，只适合应急。
 
 ## 3. 打一个版本标签（Zenodo 靠 tag 触发归档）
 
@@ -66,7 +68,7 @@ GitHub 网页：右侧 **Releases → Create a new release**
 
 - Tag: `v1.0.0`（必须新建 tag，不要只写标题）
 - Title: `v1.0.0 — manuscript submission`
-- 描述里写一句：`Code and derived data matching the 2026-11-09 manuscript.`
+- 描述里写一句：`Code and derived data matching the 2026-11-10 manuscript.`
 
 此时**先不要点 Publish**，先把 Zenodo 开关打开（第 4 步），否则这次 release 不会被归档。
 
@@ -131,22 +133,24 @@ version DOI，Concept DOI 不变。稿件已发表就引 v1.0.0 的 DOI，不必
 
 中文（放在"数据可用性"一节末尾）：
 
-> 全部分析脚本、派生数据表与图件见 GitHub（https://github.com/&lt;账号&gt;/drg-target-selectivity，
-> MIT 许可），并永久归档于 Zenodo（DOI: 10.5281/zenodo.XXXXXXX）；中间结果与 `.h5ad`
+> 全部分析脚本、派生数据表与图件见 https://github.com/louis073161/drg-target-selectivity
+> （MIT 许可），并永久归档于 Zenodo（DOI: 10.5281/zenodo.XXXXXXX）；中间结果与 `.h5ad`
 > 对象归档于 Zenodo（DOI: 10.5281/zenodo.YYYYYYY）。仓库内 `tools/quick_check.py`
-> 可一键复核表 10、3.11、3.13 与图 2，输出与本稿逐字节一致。原始测序数据来自
-> GSE249746、GSE59739、GSE310000、GSE201586，遗传学数据来自 FinnGen R12，
-> 蛋白组数据来自 PRIDE PXD061129，均按各自许可公开。
+> 可一键复核表 10、3.11、3.13 与图 2，输出与本稿逐字节一致；GitHub Actions 亦在
+> 干净容器中每次提交自动复算。原始测序数据来自 GSE249746、GSE59739、GSE310000、
+> GSE201586，遗传学数据来自 FinnGen R12，蛋白组数据来自 PRIDE PXD061129，
+> 均按各自许可公开。
 
 英文：
 
 > All analysis scripts, derived tables and figure source files are available at
-> https://github.com/&lt;account&gt;/drg-target-selectivity (MIT) and are permanently archived at
-> Zenodo (DOI: 10.5281/zenodo.XXXXXXX); intermediates and `.h5ad` objects are archived
+> https://github.com/louis073161/drg-target-selectivity (MIT) and are permanently archived
+> at Zenodo (DOI: 10.5281/zenodo.XXXXXXX); intermediates and `.h5ad` objects are archived
 > separately (DOI: 10.5281/zenodo.YYYYYYY). `tools/quick_check.py` reproduces Table 10,
-> sections 3.11 and 3.13, and Figure 2 byte-for-byte. Raw sequencing data were obtained
-> from GSE249746, GSE59739, GSE310000 and GSE201586, genetic associations from FinnGen
-> release 12, and proteomic data from PRIDE PXD061129, each under its own terms.
+> sections 3.11 and 3.13, and Figure 2 byte-for-byte, and the same check runs automatically
+> in GitHub Actions on every commit. Raw sequencing data were obtained from GSE249746,
+> GSE59739, GSE310000 and GSE201586, genetic associations from FinnGen release 12, and
+> proteomic data from PRIDE PXD061129, each under its own terms.
 
 ## 9. 四条容易踩的坑
 

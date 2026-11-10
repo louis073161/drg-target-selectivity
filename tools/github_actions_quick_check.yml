@@ -1,0 +1,30 @@
+name: quick check
+
+# 表 10、3.13、3.11 的数值由第三方在干净容器里重算一遍，
+# 与稿件所用版本逐字节比对。PNG 字节不跨平台一致，故 CI 只比 CSV。
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      # 版本与稿件复算环境一致：pandas 决定 CSV 的字面量格式，
+      # numpy/scipy 决定数值，都不宜浮动。
+      - name: Install
+        run: python -m pip install --upgrade pip "numpy==2.5.4" "pandas==3.1.0" "scipy==1.18.1"
+
+      - name: Flatten derived tables
+        run: python tools/prepare_workdir.py
+
+      - name: Reproduce tables 10 / 3.11 / 3.13
+        run: python tools/quick_check.py --csv-only
