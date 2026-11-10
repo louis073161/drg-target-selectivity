@@ -1,5 +1,6 @@
 # Subtype selectivity of analgesic targets in human dorsal root ganglia
 
+[![quick check](https://github.com/louis073161/drg-target-selectivity/actions/workflows/quick_check.yml/badge.svg)](https://github.com/louis073161/drg-target-selectivity/actions/workflows/quick_check.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -54,12 +55,10 @@ python tools/quick_check.py                    # reproduce Table 10, 3.13, 3.11,
 MD5 checksums against the versions used in the manuscript. It should print
 `全部一致，稿件数字可复现。` — four outputs, byte-identical.
 
-The three table-producing checks can also run in GitHub Actions on Linux
-(`--csv-only`, since PNG bytes are not platform-invariant). The workflow definition is kept
-at `tools/github_actions_quick_check.yml`; copy it to `.github/workflows/` and push to
-enable it (that path requires the `workflows` scope on the pushing token). Once enabled, a
-green badge certifies that the published numbers are regenerable by a third party, not
-merely by the authors.
+The three table-producing checks also run in continuous integration on Linux
+(`--csv-only`, since PNG bytes are not platform-invariant); see the badge above and
+`.github/workflows/quick_check.yml`. A green badge means the published numbers are
+regenerable from the published tables by a third party, not merely by the authors.
 
 Scripts that need the intermediate `.h5ad` objects (`atlas_s3_final.h5ad`, 216 MB;
 `GSE310000.h5ad`; the mouse objects) require the Zenodo archive; unzip it into `archive/`

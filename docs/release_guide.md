@@ -24,9 +24,8 @@
 - 7 张成品图（`figures/`）
 - `README.md`、`LICENSE`（MIT）、`CITATION.cff`、`requirements.txt`、`.gitignore`
 - `tools/quick_check.py`：审稿人一条命令即可复核表 10、3.13、3.11、图 2，逐字节比对 MD5
-- `tools/github_actions_quick_check.yml`：CI 工作流模板。`.github/workflows/` 这个路径
-  需要令牌具备 Workflows 写权限才能推送，故暂存在 `tools/`；若要启用，复制回
-  `.github/workflows/` 并 push 即可，仓库首页会出现绿点徽章（"第三方可复现"的公开证据）
+- `.github/workflows/quick_check.yml`：push 后 GitHub 自动在干净容器里重算一遍，
+  仓库首页的绿点徽章就是"第三方可复现"的公开证据（该路径需令牌具备 Workflows 写权限）
 
 合计约 24 MB。GitHub 单文件上限 100 MB、仓库建议 1 GB 以内，完全够。
 
