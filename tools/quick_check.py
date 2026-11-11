@@ -20,7 +20,7 @@ WORK = ROOT / "sc_demo"
 EXPECT = {
     "table10_proteome.csv":          "7b4dacb392d7549ea8d7925b169d4e96",
     "adora1_by_class.csv":           "7993deec62c1184ca9335de8ef47cf7a",
-    "matched_null.csv":              "b5223738ec10524f429708cb7849f75b",
+    "matched_null.csv":              "7e042c4b7f2640ec1abee62c6970ed9e",
     "fig2_genomewide_benchmark.png": "9c22a0d811b21841b60915a16f6daaae",
 }
 STEPS = [

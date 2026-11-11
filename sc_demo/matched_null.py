@@ -30,7 +30,7 @@ for name in TARGETS:
     dd, aa = d[i], a[i]
 
     # --- 1D：检出率最近 800 个 ---
-    near = [j for j in np.argsort(np.abs(d - dd)) if j != i][:K]
+    near = [j for j in np.argsort(np.abs(d - dd), kind="stable") if j != i][:K]
     pct_1d = float((a[near] < aa).mean() * 100)
 
     # --- 2D：检出率 + log 基因长度 ---
@@ -40,7 +40,7 @@ for name in TARGETS:
     z2 = (np.log10(r["len"].values[ok]) - np.log10(r["len"].values[ok]).mean()) / \
          np.log10(r["len"].values[ok]).std()
     dist = np.hypot(z1 - z1[list(idx).index(i)], z2 - z2[list(idx).index(i)])
-    order = [idx[k] for k in np.argsort(dist) if idx[k] != i][:K]
+    order = [idx[k] for k in np.argsort(dist, kind="stable") if idx[k] != i][:K]
     pct_2d = float((a[order] < aa).mean() * 100)
 
     m = np.abs(d - dd) <= 5.0
