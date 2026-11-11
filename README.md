@@ -1,7 +1,7 @@
 # Subtype selectivity of analgesic targets in human dorsal root ganglia
 
 [![quick check](https://github.com/louis073161/drg-target-selectivity/actions/workflows/quick_check.yml/badge.svg)](https://github.com/louis073161/drg-target-selectivity/actions/workflows/quick_check.yml)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](#citation)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Code, derived data and figure source files for the manuscript:

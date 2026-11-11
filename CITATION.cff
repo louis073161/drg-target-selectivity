@@ -7,8 +7,10 @@ version: 1.0.0
 date-released: 2026-11-10
 license: MIT
 repository-code: "https://github.com/louis073161/drg-target-selectivity"
-url: "https://doi.org/10.5281/zenodo.XXXXXXX"
-doi: "10.5281/zenodo.XXXXXXX"
+# Uncomment the two lines below once Zenodo has minted the DOI (format: 10.5281/zenodo.NNNNNNN).
+# A malformed doi field makes the GitHub "Cite this repository" button fail validation.
+# url: "https://doi.org/10.5281/zenodo.NNNNNNN"
+# doi: "10.5281/zenodo.NNNNNNN"
 keywords:
   - dorsal root ganglion
   - single-cell RNA sequencing
