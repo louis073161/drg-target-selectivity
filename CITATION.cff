@@ -3,14 +3,14 @@ message: "If you use this code or these derived tables, please cite the archived
 title: "Subtype selectivity of analgesic targets in human dorsal root ganglia"
 abstract: "Code and derived data for a genome-wide benchmark of analgesic targets across four human DRG cohorts, one mouse cohort, six FinnGen endpoints and one public proteome. Places ADORA1, CNR1, OPRK1, TRPV1, P2RX3 and Nav1.7/1.8/1.9 on a common ΔAUC yardstick."
 type: software
-version: 1.0.0
-date-released: 2026-11-10
+version: 1.0.1
+date-released: 2026-11-11
 license: MIT
 repository-code: "https://github.com/louis073161/drg-target-selectivity"
-# Uncomment the two lines below once Zenodo has minted the DOI (format: 10.5281/zenodo.NNNNNNN).
-# A malformed doi field makes the GitHub "Cite this repository" button fail validation.
-# url: "https://doi.org/10.5281/zenodo.NNNNNNN"
-# doi: "10.5281/zenodo.NNNNNNN"
+# Concept DOI: always resolves to the newest archived version.
+# Exact snapshot of this release: 10.5281/zenodo.24122624
+url: "https://doi.org/10.5281/zenodo.24109653"
+doi: "10.5281/zenodo.24109653"
 keywords:
   - dorsal root ganglion
   - single-cell RNA sequencing

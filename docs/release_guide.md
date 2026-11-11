@@ -1,6 +1,6 @@
 # 发布指南：GitHub + Zenodo（30 分钟可完成）
 
-目标：让稿件里能写「代码与派生数据见 GitHub，永久归档于 Zenodo，DOI: 10.5281/zenodo.XXXXXXX」，
+目标：让稿件里能写「代码与派生数据见 GitHub，永久归档于 Zenodo，DOI: 10.5281/zenodo.24109653（概念 DOI）」，
 而不是「可向作者索取」。这是高分刊的硬性要求，也是审稿人判断可信度的第一条依据。
 
 ---
@@ -29,9 +29,9 @@
 
 合计约 24 MB。GitHub 单文件上限 100 MB、仓库建议 1 GB 以内，完全够。
 
-**唯一剩下的占位是 DOI**：Zenodo 生成后，把 `10.5281/zenodo.XXXXXXX` 替换成真实值
-（`CITATION.cff` 两处、`README.md` 徽章与正文各一处）。仓库地址、ORCID、作者与单位
-已按 2026-11-10 提供的信息填好：
+**DOI 已回填**（2026-11-11）：仓库归档为 `10.5281/zenodo.24109653`（概念 DOI，始终指向最新版本），
+v1.0.0 快照为 `10.5281/zenodo.24122624`。已写入 `CITATION.cff` 两处、`README.md` 徽章与引用块。
+仓库地址、ORCID、作者与单位均已填好：
 
 - GitHub：`louis073161`（本地已设好 `origin`，直接 push 即可）
 - ORCID：`0000-0002-0758-0648`
@@ -133,8 +133,8 @@ version DOI，Concept DOI 不变。稿件已发表就引 v1.0.0 的 DOI，不必
 中文（放在"数据可用性"一节末尾）：
 
 > 全部分析脚本、派生数据表与图件见 https://github.com/louis073161/drg-target-selectivity
-> （MIT 许可），并永久归档于 Zenodo（DOI: 10.5281/zenodo.XXXXXXX）；中间结果与 `.h5ad`
-> 对象归档于 Zenodo（DOI: 10.5281/zenodo.YYYYYYY）。仓库内 `tools/quick_check.py`
+> （MIT 许可），并永久归档于 Zenodo（概念 DOI: 10.5281/zenodo.24109653，始终指向最新版本）；中间结果与 `.h5ad`
+> 对象的归档尚未建立（见第 6 节）。仓库内 `tools/quick_check.py`
 > 可一键复核表 10、3.11、3.13 与图 2，输出与本稿一致（CSV 校验前归一换行符）；GitHub Actions 亦在
 > 干净容器中每次提交自动复算。原始测序数据来自 GSE249746、GSE59739、GSE310000、
 > GSE201586，遗传学数据来自 FinnGen R12，蛋白组数据来自 PRIDE PXD061129，
@@ -144,8 +144,9 @@ version DOI，Concept DOI 不变。稿件已发表就引 v1.0.0 的 DOI，不必
 
 > All analysis scripts, derived tables and figure source files are available at
 > https://github.com/louis073161/drg-target-selectivity (MIT) and are permanently archived
-> at Zenodo (DOI: 10.5281/zenodo.XXXXXXX); intermediates and `.h5ad` objects are archived
-> separately (DOI: 10.5281/zenodo.YYYYYYY). `tools/quick_check.py` reproduces Table 10,
+> at Zenodo (concept DOI: 10.5281/zenodo.24109653, always resolving to the newest version);
+> intermediates and `.h5ad` objects are not yet deposited
+> (see section 6). `tools/quick_check.py` reproduces Table 10,
 > sections 3.11 and 3.13, and Figure 2 (line endings normalised before hashing), and the same check runs automatically
 > in GitHub Actions on every commit. Raw sequencing data were obtained from GSE249746,
 > GSE59739, GSE310000 and GSE201586, genetic associations from FinnGen release 12, and

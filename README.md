@@ -1,7 +1,7 @@
 # Subtype selectivity of analgesic targets in human dorsal root ganglia
 
 [![quick check](https://github.com/louis073161/drg-target-selectivity/actions/workflows/quick_check.yml/badge.svg)](https://github.com/louis073161/drg-target-selectivity/actions/workflows/quick_check.yml)
-[![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](#citation)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24109653.svg)](https://doi.org/10.5281/zenodo.24109653)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Code, derived data and figure source files for the manuscript:
@@ -88,9 +88,14 @@ Two of these medians happen to equal 0.066. That is a coincidence, not a shared 
 
 ## Citation
 
-If you use this code or these tables, please cite the manuscript and the archived release
-(DOI to be inserted after the Zenodo deposit). `CITATION.cff` carries the metadata GitHub and
-Zenodo read automatically.
+If you use this code or these tables, please cite the manuscript and the archived release:
+
+> Lu Y. *Subtype selectivity of analgesic targets in human dorsal root ganglia* (v1.0.1).
+> Zenodo. https://doi.org/10.5281/zenodo.24109653
+
+`10.5281/zenodo.24109653` is the **concept DOI** — it always resolves to the newest archived
+version. The DOI of the v1.0.0 snapshot is `10.5281/zenodo.24122624`. `CITATION.cff` carries
+the metadata GitHub and Zenodo read automatically.
 
 **Author.** Yi Lu, MD, PhD — The Affiliated Traditional Chinese Medicine Hospital,
 Guangzhou Medical University. ORCID [0000-0002-0758-0648](https://orcid.org/0000-0002-0758-0648).
